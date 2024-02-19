@@ -2,8 +2,6 @@
 //  ContentView.swift
 //  LoginScreen
 //
-//  Created by Appathon Proposal 1 on 13/11/2021.
-//
 
 import SwiftUI
 
@@ -72,6 +70,7 @@ struct ContentView: View {
 
                     Button("Sign In") {
                         authenticateUser(username: username, password: password)
+                        
                         }
                     .foregroundColor(.white)
                     .frame(width: 300, height: 50)
@@ -79,42 +78,8 @@ struct ContentView: View {
                     .cornerRadius(30)
                     .position(x:195,y:5)
                     
-                    /*
-                    Text("OR LOG IN WITH")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .font(.system(size: 12))
-                        .position(x:195,y:0)
                     
-                     Button("Google") {
-                        
-                     .foregroundColor(.red)
-                     .frame(width: 100, height: 100)
-                     .background(Color.white)
-                     .cornerRadius(90)
-                     .padding()
-                     .position(x:195,y:20)
-                     
-                     Button("Facebook") {
-                         authenticateUser(username: username, password: password)
-                         }
-                     .foregroundColor(.blue)
-                     .frame(width: 100, height: 100)
-                     .background(Color.white)
-                     .cornerRadius(90)
-                     .padding()
-                     .position(x:200,y:20)
-                    
-                    Button("Apple") {
-                        authenticateUser(username: username, password: password)
-                        }
-                    .foregroundColor(.black)
-                    .frame(width: 100, height: 100)
-                    .background(Color.white)
-                    .cornerRadius(90)
-                    .padding()
-                    .position(x:200,y:20)
-                     */
+                    .navigationBarTitle("Home screen")
                     
                     Text("Don't have an account?")
                         .padding()
@@ -123,6 +88,10 @@ struct ContentView: View {
 
                     Button("Sign Up"){
                         authenticateUser(username: username, password: password)
+                        if (showingLoginScreen == true) {
+                            
+                        }
+                        
                         }
                         .padding()
                         .foregroundColor(Color("lightblue"))
@@ -131,12 +100,19 @@ struct ContentView: View {
                         .position(x:195,y:5)
                     
                     
-                    NavigationLink(destination: Text("You are logged in @\(username)"), isActive: $showingLoginScreen) {
-                        EmptyView()
-                    }
                     
+                     /*
+                    NavigationStack{
+                        
+                    }
+                    .navigationTitle("Home Page")
+                    .navigationDestination(for: Int.self) {
+                        MySecondScreen()
+                    }
+                      */
                     
                 }
+                //.navigate(to: HomeView, when: $showingLoginScreen = true)
             }.navigationBarHidden(true)
         }
     }
@@ -156,7 +132,29 @@ struct ContentView: View {
     }
 }
 
-
+/*
+struct MySecondScreen: View {
+    var body: some View {
+        let value : Int
+        
+        init(value : Int) {
+            self.value = value
+            print("Home page is here")
+        }
+        
+    }
+}
+ */
+struct HomeView : View {
+    let data: String
+    
+    var body : some View {
+    
+    Text(data)
+    }
+    //.navigationBarTitle("Second Screen")
+}
+    
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
