@@ -147,3 +147,4 @@ struct Anayltics_Previews : PreviewProvider {
         Anayltics()
     }
 }
+
