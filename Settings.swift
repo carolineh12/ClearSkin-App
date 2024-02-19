@@ -2,56 +2,70 @@
 
 import SwiftUI
 
-struct Settings: View {
-  let skinType = [""]
+struct Setting: View {
+  @State private var skinGoals = ""
+  @State private var age = ""
+  @State private var gender = ""
+  @State private var race = ""
+  @State private var skinType = ""
+  @State private var notifications = ""
   var body: some View {
     TabView {
-      SettingsView()
-          .tabItem {
-              Label("Name", systemImage: "circle.fill(.blue)")
-          }
     NavigationView {
         List {
           Section
           {
             Text("Skin Goals")
-            Text("Plan 1")
-            .multilineTextAlignment(.right).italic()
+            TextField("Skin Goals", text: $skinGoals)
+                .padding().bold()
+            Spacer()
           }
           Section
           {
-            Text("Age")
-            Text("22")
-            .multilineTextAlignment(.right).italic()
+            Label("Age")
+            TextField("Age", text: $age)
+                .padding().bold()
+            Spacer()
           }
           Section
           {
             Text("Gender")
-            Text("Female")
-            .multilineTextAlignment(.right).italic()
+            TextField("Gender", text: $gender)
+                .padding().bold()
+            Spacer()
           }
           Section
           {
             Text("Race")
-            Text("Enter Race")
-            .multilineTextAlignment(.right).italic()
+            TextField("Race", text: $race)
+                .padding().bold()
+            Spacer()
           }
           Section
           {
             Text("Skin Type")
-            Text("Dry")
-            .multilineTextAlignment(.right).italic()
+            TextField("Skin Type", text: $skinType)
+                .padding().bold()
+            Spacer()
           }
           Section
           {
             Text("Notifications")
-            Toggle("Enable Notifications", isOn: $notificationsEnabled)
+            TextField("Notifications", text: $notifications)
+                .padding().bold()
+            Spacer()
           }
-          Button(action: signOut)
-          {
-            Label("Sign Out").foregroundColor(.red)
-            UserDefaults.standard.removeObject(forKey: "userLoggedIn")
+          Button(action: {
+            // idk sign out
+          }) {
+            Text("Sign Out")
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
           }
+          .padding()
         }
         .listStyle(.insetGrouped)
         .navigationTitle("ClearSkin")
@@ -60,8 +74,8 @@ struct Settings: View {
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        Setting()
     }
 }
