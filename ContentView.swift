@@ -68,18 +68,20 @@ struct ContentView: View {
                         .font(.system(size: 12))
                         .position(x:285,y:60)
 
-                    Button("Sign In") {
-                        authenticateUser(username: username, password: password)
-                        
-                        }
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 50)
-                    .background(Color("lightblue"))
-                    .cornerRadius(30)
-                    .position(x:195,y:5)
+                    NavigationLink(destination: Anayltics())
+                    {
+                        Button("Sign In") {
+                                authenticateUser(username: username, password: password)
+                                
+                                }
+                            .foregroundColor(.white)
+                            .frame(width: 300, height: 50)
+                            .background(Color("lightblue"))
+                            .cornerRadius(30)
+                            .position(x:195,y:5)
+                    }
                     
-                    
-                    .navigationBarTitle("Home screen")
+                    //.navigationBarTitle("Home screen")
                     
                     Text("Don't have an account?")
                         .padding()
@@ -123,7 +125,7 @@ struct ContentView: View {
             if password == "Pass" {
                 wrongPassword = 0
                 showingLoginScreen = true
-            } else {
+                } else {
                 wrongPassword = 2
             }
         } else {
