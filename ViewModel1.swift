@@ -43,6 +43,30 @@ class ViewModel1: ObservableObject {
     func reset() {
         image = nil
         imageName = ""
+        isEditing = false
+        selectedImage = nil
+    }
+    
+    func display(_ myImage: MyImage1) {
+        image = myImage.image
+        imageName = myImage.name
+        selectedImage = myImage
+    }
+    
+    func updateSelected() {
+        if let index = myImages.firstIndex(where: {$0.id == selectedImage!.id}) {
+            myImages[index].name = imageName
+            saveMyImagesJSONFile()
+            reset()
+        }
+    }
+    
+    func deleteSelected() {
+        if let index = myImages.firstIndex(where: {$0.id == selectedImage!.id}) {
+            myImages.remove(at: index)
+            saveMyImagesJSONFile()
+            reset()
+        }
     }
     
     func addMyImage(_ name: String, image: UIImage) {
@@ -63,6 +87,7 @@ class ViewModel1: ObservableObject {
         do {
             let data = try encoder.encode(myImages)
             let jsonString = String(decoding: data, as: UTF8.self)
+            reset()
             do {
                 try FileManager().saveDocument(contents: jsonString)
             } catch {
