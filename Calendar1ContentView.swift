@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct CalendarView2: View {
     @State private var selectedDate: Date?
     @State private var isChecked: [Bool] = [false, false, false]
     let itemTexts = ["Apply moisturizer", "Exfoliate", "Apply face mask"]
@@ -12,7 +12,7 @@ struct ContentView: View {
         VStack {
             //NavigationView {
                 ScrollView {
-                    CalendarView1(months: sampleMonths)
+                    CalendarView(months: sampleMonths)
                         .padding()
                     Divider() // Add a divider between the calendar and the list
                 }
@@ -82,3 +82,13 @@ struct AnotherPageView: View {
             .font(.largeTitle)
     }
 }
+
+struct Calendar2_Previews: PreviewProvider {
+    static var previews: some View {
+        let days = (1...28).map { Day(date: $0, imageName: "image") }
+        let feb = Month(name: "February", days: days)
+        let months = [feb]
+        CalendarView2()
+    }
+}
+
