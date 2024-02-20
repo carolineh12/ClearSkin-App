@@ -67,3 +67,13 @@ struct CalendarView1: View {
         }
     }
 }
+
+
+struct Calendar_Previews: PreviewProvider {
+    static var previews: some View {
+        let days = (1...28).map { Day(date: $0, imageName: "image") } // Assuming February has 28 days for simplicity
+        let feb = Month(name: "February", days: days)
+        let months = [feb]
+        return CalendarView1(months: months)
+    }
+}
