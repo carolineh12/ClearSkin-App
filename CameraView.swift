@@ -24,9 +24,10 @@ struct CameraView: View {
                     if !vm.isEditing {
                         pickerButton
                     }
-                    Spacer()
-                    .padding()
                 }
+                Spacer()
+                    .padding()
+            }
                 .task {
                     if FileManager().docExist(named: fileName) {
                         vm.loadMyImagesJSONFile()
@@ -34,7 +35,7 @@ struct CameraView: View {
                 }
                 
                 .sheet(isPresented: $vm.showPicker) {
-                    ImagePicker(selectedImage: $vm.image, sourceType: vm.source == .library ? .photoLibrary: .camera)
+                    ImagePicker(sourceType: vm.source == .library ? .photoLibrary: .camera, selectedImage: $vm.image)
                         .ignoresSafeArea()
                 }
             }
@@ -52,8 +53,8 @@ struct CameraView: View {
                 }
             }
         }
-        }
     }
+
     
     struct CameraView_Preview: PreviewProvider {
         static var previews: some View {
