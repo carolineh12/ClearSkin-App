@@ -20,7 +20,7 @@ struct CalendarView1: View {
     @State private var currentDate = Date()
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 10) {
                 ForEach(months, id: \.name) { month in
                     Section(header: Text(month.name).font(.title).foregroundColor(.black).bold()) {
                         HStack(spacing: 0) {
@@ -29,7 +29,6 @@ struct CalendarView1: View {
                                 Text(columnName)
                                     .font(.headline)
                                     .foregroundColor(.black)
-                                //.frame(width: 25, height: 25)
                             }
                         }
                         // Create a grid with seven columns
