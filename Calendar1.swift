@@ -20,7 +20,7 @@ struct CalendarView1: View {
     @State private var currentDate = Date()
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 5) {
                 ForEach(months, id: \.name) { month in
                     Section(header: Text(month.name).font(.title).foregroundColor(.black).bold()) {
                         HStack(spacing: 0) {
