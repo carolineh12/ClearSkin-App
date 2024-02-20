@@ -13,7 +13,7 @@ struct CalendarView2: View {
             //NavigationView {
                 ScrollView {
                     CalendarView(months: sampleMonths)
-                        .padding()
+                        .padding(.top,10)
                     Divider() // Add a divider between the calendar and the list
                 }
                 
