@@ -12,7 +12,7 @@ struct ContentView: View {
         VStack {
             //NavigationView {
                 ScrollView {
-                    CalendarView1(months: sampleMonths, selectedDate: $selectedDate)
+                    CalendarView1(months: sampleMonths)
                         .padding()
                     Divider() // Add a divider between the calendar and the list
                 }
