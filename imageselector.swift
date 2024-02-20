@@ -1,6 +1,6 @@
-.import SwiftUI
+import SwiftUI
 
-struct ContentView: View {
+struct ImageSelectorView: View {
     @State private var selectedImage: String? = nil
     @State private var isImagePickerPresented: Bool = false
 
@@ -57,8 +57,8 @@ struct DetailView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ImageSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ImageSelectorView()
     }
 }
