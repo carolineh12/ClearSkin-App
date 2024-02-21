@@ -1,0 +1,50 @@
+//
+//  TabBar.swift
+//  ClearSkin
+//
+//  Created by Disha Patel on 2/19/24.
+//
+
+import SwiftUI
+
+struct TabBar: View {
+    var body: some View {
+        TabView{
+            CameraView()
+                .tabItem(){
+                    Image(systemName: "camera")
+                    Text("Camera")
+                }
+
+            Anayltics()
+                .tabItem(){
+                    Image(systemName: "chart.xyaxis.line")
+                    Text("Analytics")
+                }
+            CalendarView2()
+                .tabItem{
+                    Image(systemName : "calendar")
+                    Text("Calendar")
+                }
+            /*SkinNews()
+                .tabItem(){
+                    Image(systemName: "newspaper")
+                    Text("Skin News")
+                }*/
+            Setting()
+                .tabItem(){
+                    Image(systemName: "gearshape")
+                    Text("Settings")
+                }
+            
+        }
+        .accentColor(Color.blue)
+        
+    }
+}
+
+struct TabBar_Previews: PreviewProvider {
+    static var previews: some View {
+        TabBar()
+    }
+}
